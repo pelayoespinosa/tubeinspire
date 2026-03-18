@@ -2,6 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import trendsRouter from './routes/trends.routes.js'
+import authRouter from './routes/auth.routes.js'
 
 dotenv.config()
 
@@ -15,6 +16,7 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'TubeInspire API funcionando' })
 })
 
+app.use('/api/auth', authRouter)
 app.use('/api/trends', trendsRouter)
 
 app.listen(PORT, () => {
