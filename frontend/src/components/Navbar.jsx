@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom'
+import logo from '../assets/logo.png'
 
 export default function Navbar() {
   const navigate = useNavigate()
@@ -11,16 +12,17 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="border-b border-gray-200 px-6 py-4 flex items-center justify-between">
+    <nav className="bg-gray-900 border-b border-gray-800 px-6 py-3 flex items-center justify-between">
       <div className="flex items-center gap-2">
-        <span className="text-xl font-bold text-red-500">▶</span>
-        <span className="text-xl font-semibold">TubeInspire</span>
+        <img src={logo} alt="TubeInspire" className="w-8 h-8 object-contain" />
+        <span className="text-white text-lg font-semibold">TubeInspire</span>
+        <span className="bg-red-500 text-white text-xs px-2 py-0.5 rounded-full font-medium ml-1">BETA</span>
       </div>
       <div className="flex items-center gap-4">
-        <span className="text-sm text-gray-500">Hola, {user?.name}</span>
+        <span className="text-gray-400 text-sm">{user?.name}</span>
         <button
           onClick={logout}
-          className="text-sm text-gray-500 hover:text-red-500 transition-colors"
+          className="text-sm bg-gray-800 text-gray-300 hover:text-white px-3 py-1.5 rounded-lg transition-colors border border-gray-700"
         >
           Cerrar sesión
         </button>

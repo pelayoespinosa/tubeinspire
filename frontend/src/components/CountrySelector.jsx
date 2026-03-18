@@ -1,12 +1,12 @@
 const COUNTRIES = [
-  { code: 'ES', label: 'España' },
-  { code: 'US', label: 'Estados Unidos' },
-  { code: 'MX', label: 'México' },
-  { code: 'AR', label: 'Argentina' },
-  { code: 'JP', label: 'Japón' },
-  { code: 'GB', label: 'Reino Unido' },
-  { code: 'BR', label: 'Brasil' },
-  { code: 'DE', label: 'Alemania' },
+  { code: 'ES', label: 'España', flag: '🇪🇸' },
+  { code: 'US', label: 'EE.UU.', flag: '🇺🇸' },
+  { code: 'MX', label: 'México', flag: '🇲🇽' },
+  { code: 'AR', label: 'Argentina', flag: '🇦🇷' },
+  { code: 'JP', label: 'Japón', flag: '🇯🇵' },
+  { code: 'GB', label: 'Reino Unido', flag: '🇬🇧' },
+  { code: 'BR', label: 'Brasil', flag: '🇧🇷' },
+  { code: 'DE', label: 'Alemania', flag: '🇩🇪' },
 ]
 
 export default function CountrySelector({ value, onChange }) {
@@ -16,13 +16,14 @@ export default function CountrySelector({ value, onChange }) {
         <button
           key={c.code}
           onClick={() => onChange(c.code)}
-          className={`px-4 py-1.5 rounded-full text-sm border transition-colors
+          className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all flex items-center gap-1.5
             ${value === c.code
-              ? 'bg-red-500 text-white border-red-500'
-              : 'border-gray-300 text-gray-600 hover:border-red-400'
+              ? 'bg-red-500 text-white shadow-lg shadow-red-500/20'
+              : 'bg-gray-800 text-gray-400 hover:text-white hover:bg-gray-700 border border-gray-700'
             }`}
         >
-          {c.label}
+          <span>{c.flag}</span>
+          <span>{c.label}</span>
         </button>
       ))}
     </div>

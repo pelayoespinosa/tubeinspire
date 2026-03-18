@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { registerUser } from '../services/api'
+import logo from '../assets/logo.png'
 
 export default function Register() {
   const [form, setForm] = useState({ name: '', email: '', password: '' })
@@ -29,53 +30,53 @@ export default function Register() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-      <div className="bg-white rounded-2xl border border-gray-200 p-8 w-full max-w-sm">
+    <div className="min-h-screen bg-gray-900 flex items-center justify-center">
+      <div className="bg-gray-800 rounded-2xl border border-gray-700 p-8 w-full max-w-sm">
         <div className="flex items-center gap-2 mb-8">
-          <span className="text-xl font-bold text-red-500">▶</span>
-          <span className="text-xl font-semibold">TubeInspire</span>
+          <img src={logo} alt="TubeInspire" className="w-9 h-9 object-contain" />
+          <span className="text-white text-xl font-semibold">TubeInspire</span>
         </div>
-        <h1 className="text-xl font-semibold mb-1">Crear cuenta</h1>
-        <p className="text-sm text-gray-500 mb-6">Empieza a encontrar ideas</p>
+        <h1 className="text-xl font-semibold mb-1 text-white">Crear cuenta</h1>
+        <p className="text-sm text-gray-400 mb-6">Empieza a encontrar ideas</p>
 
         {error && (
-          <p className="text-sm text-red-500 bg-red-50 border border-red-200 rounded-lg px-3 py-2 mb-4">
+          <p className="text-sm text-red-400 bg-red-500/10 border border-red-500/20 rounded-lg px-3 py-2 mb-4">
             {error}
           </p>
         )}
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <div>
-            <label className="text-sm font-medium text-gray-700 block mb-1">Nombre</label>
+            <label className="text-sm font-medium text-gray-300 block mb-1">Nombre</label>
             <input
               type="text"
               name="name"
               value={form.name}
               onChange={handleChange}
               placeholder="Tu nombre"
-              className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-red-400"
+              className="w-full bg-gray-900 border border-gray-600 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-red-400"
             />
           </div>
           <div>
-            <label className="text-sm font-medium text-gray-700 block mb-1">Email</label>
+            <label className="text-sm font-medium text-gray-300 block mb-1">Email</label>
             <input
               type="email"
               name="email"
               value={form.email}
               onChange={handleChange}
               placeholder="tu@email.com"
-              className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-red-400"
+              className="w-full bg-gray-900 border border-gray-600 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-red-400"
             />
           </div>
           <div>
-            <label className="text-sm font-medium text-gray-700 block mb-1">Contraseña</label>
+            <label className="text-sm font-medium text-gray-300 block mb-1">Contraseña</label>
             <input
               type="password"
               name="password"
               value={form.password}
               onChange={handleChange}
               placeholder="••••••••"
-              className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-red-400"
+              className="w-full bg-gray-900 border border-gray-600 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-red-400"
             />
           </div>
           <button

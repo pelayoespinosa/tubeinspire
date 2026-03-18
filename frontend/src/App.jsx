@@ -17,7 +17,7 @@ export default function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/" element={
           <PrivateRoute>
-            <div className="min-h-screen bg-gray-50">
+            <div className="min-h-screen bg-gray-900">
               <Navbar />
               <Home />
             </div>
