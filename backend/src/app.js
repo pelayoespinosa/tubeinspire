@@ -3,6 +3,7 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 import trendsRouter from './routes/trends.routes.js'
 import authRouter from './routes/auth.routes.js'
+import nichesRouter from './routes/niches.routes.js'
 
 dotenv.config()
 
@@ -18,6 +19,7 @@ app.get('/api/health', (req, res) => {
 
 app.use('/api/auth', authRouter)
 app.use('/api/trends', trendsRouter)
+app.use('/api/niches', nichesRouter)
 
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`)

@@ -24,3 +24,8 @@ export async function registerUser(name, email, password) {
   const response = await api.post('/auth/register', { name, email, password })
   return response.data
 }
+
+export async function fetchNiches(category, country = 'ES') {
+  const response = await api.get(`/niches?category=${category}&country=${country}`)
+  return response.data
+}

@@ -3,10 +3,20 @@ import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import Niches from './pages/Niches'
 
 function PrivateRoute({ children }) {
   const token = localStorage.getItem('token')
   return token ? children : <Navigate to="/login" />
+}
+
+function Layout({ children }) {
+  return (
+    <div className="min-h-screen bg-gray-900">
+      <Navbar />
+      {children}
+    </div>
+  )
 }
 
 export default function App() {
@@ -17,10 +27,12 @@ export default function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/" element={
           <PrivateRoute>
-            <div className="min-h-screen bg-gray-900">
-              <Navbar />
-              <Home />
-            </div>
+            <Layout><Home /></Layout>
+          </PrivateRoute>
+        } />
+        <Route path="/niches" element={
+          <PrivateRoute>
+            <Layout><Niches /></Layout>
           </PrivateRoute>
         } />
       </Routes>
